@@ -1,6 +1,6 @@
 **Align center:**
 
-![image info](./images/icon.png)
+![image info](./images/icon.png){ width="250" height="300" style="display: block; margin: 0 auto" }
 
 # Ayat
 
