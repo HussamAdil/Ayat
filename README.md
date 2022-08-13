@@ -1,3 +1,5 @@
+**Align center:**
+
 ![image info](./images/icon.png)
 
 # Ayat
