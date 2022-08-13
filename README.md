@@ -1,9 +1,10 @@
-  <p align="center">
- <img src="https://i.ibb.co/QFh2MsC/index.jpg" alt="index" border="0" width="250" height="250">
- </p>
 
- 
 # Ayat
+
+<p align="center">
+ 
+<img src="https://i.ibb.co/QFh2MsC/index.jpg" alt="index" border="0" width="200" height="200">
+ </p>
 
 Get an verse(aya) from the Quran during your coding session 💻 , stay connected with the words of Allah. 💚 🕋
 
@@ -27,5 +28,5 @@ Get an verse(aya) from the Quran during your coding session 💻 , stay connecte
 * [Personal website ](https://hussamadil.com)
 * [Quran Api](https://alquran.cloud/api)
 
-
 **Enjoy!**
+=======
