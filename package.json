@@ -1,0 +1,53 @@
+{
+  "name": "ayat",
+  "displayName": "Ayat",
+  "description": "Get an verse(aya) from the Quran during your coding session 💻 , stay connected with the words of Allah. 🕋 ",
+  "version": "0.0.1",
+  "icon": "images/icon.png",
+  "author": "Hussam adil <hussam0683@gmail.com>",
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+		"quotes",
+		"motivation",
+    "quran",
+    "ayat"
+	],
+  "activationEvents": [
+    "onCommand:ayat.getAya"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "ayat.getAya",
+        "category": "Ayat",
+        "title": "Get Aya",
+        "icon":"images/icon.png"
+      }
+    ]
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "node ./test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.70.0",
+    "@types/glob": "^7.2.0",
+    "@types/mocha": "^9.1.1",
+    "@types/node": "16.x",
+    "eslint": "^8.20.0",
+    "glob": "^8.0.3",
+    "mocha": "^10.0.0",
+    "typescript": "^4.7.4",
+    "@vscode/test-electron": "^2.1.5"
+  },
+  "dependencies": {
+    "axios": "^0.27.2"
+  }
+}
