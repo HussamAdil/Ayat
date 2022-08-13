@@ -1,7 +1,8 @@
-**Align center:**
+ <p align="center">
+ ![image info](./images/icon.png)
+ </p>
 
-![image info](./images/icon.png){ width="250" height="300" style="display: block; margin: 0 auto" }
-
+ 
 # Ayat
 
 Get an verse(aya) from the Quran during your coding session 💻 , stay connected with the words of Allah. 💚 🕋
