@@ -20,10 +20,11 @@ Get an verse(aya) from the Quran during your coding session 💻 , stay connecte
 
 - multi language support. 
 
+![image info](./images/preview.gif)
+
 ## For more information
 
 * [Personal website ](https://hussamadil.com)
 * [Quran Api](https://alquran.cloud/api)
 
 **Enjoy!**
-![image info](./images/preview.gif)
