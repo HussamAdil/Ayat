@@ -7,7 +7,7 @@ const axios = require('axios').default;
  * @param {vscode.ExtensionContext} context
  */ 
  function activate(context) {
-	console.log('hello world');
+	 
 	context.subscriptions.push(vscode.commands.registerCommand('ayat.getAya',async function () {
 	
 		randomAyaNumber = GetrandomAyaNumber();

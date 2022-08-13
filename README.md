@@ -1,6 +1,8 @@
+![image info](./images/icon.png)
+
 # Ayat
 
-Get an verse(aya) from the Quran during your coding session 💻 , stay connected with the words of Allah. 🕋
+Get an verse(aya) from the Quran during your coding session 💻 , stay connected with the words of Allah. 💚 🕋
 
 ## Release Notes
 
@@ -13,11 +15,12 @@ Get an verse(aya) from the Quran during your coding session 💻 , stay connecte
 
 ## Incoming features
 
-- multi language supported . 
+- multi language support. 
 
 ## For more information
 
 * [Personal website ](https://hussamadil.com)
-* [Quran Api](http://api.alquran.cloud)
+* [Quran Api](https://alquran.cloud/api)
 
 **Enjoy!**
+![image info](./images/preview.gif)
