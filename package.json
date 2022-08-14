@@ -1,9 +1,15 @@
 {
   "name": "ayat",
   "displayName": "Ayat",
-  "description": "Get an verse(aya) from the Quran during your coding session 💻 , stay connected with the words of Allah. 🕋 ",
-  "version": "0.0.1",
+  "description": "Get a verse(an aya) from the Quran during your coding session 💻 stay connected with the words of Allah. 🕋💚 ",
+  "version": "1.1.0",
   "icon": "images/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HussamAdil/Ayat.git"
+  },
+  "license": "MIT",
+  "publisher": "Hussamadil",
   "author": "Hussam adil <hussam0683@gmail.com>",
   "engines": {
     "vscode": "^1.70.0"
@@ -15,7 +21,8 @@
 		"quotes",
 		"motivation",
     "quran",
-    "ayat"
+    "ayat",
+    "Islam"
 	],
   "activationEvents": [
     "onCommand:ayat.getAya"
@@ -37,7 +44,7 @@
     "test": "node ./test/runTest.js"
   },
   "devDependencies": {
-    "@types/vscode": "^1.70.0",
+    "@types/vscode": "^1.61.0",
     "@types/glob": "^7.2.0",
     "@types/mocha": "^9.1.1",
     "@types/node": "16.x",
