@@ -12,7 +12,7 @@
   "publisher": "Hussamadil",
   "author": "Hussam adil <hussam0683@gmail.com>",
   "engines": {
-    "vscode": "^1.70.0"
+    "vscode": "^1.61.0"
   },
   "categories": [
     "Other"
