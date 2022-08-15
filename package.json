@@ -25,7 +25,7 @@
     "Islam"
   ],
   "activationEvents": [
-    "onCommand:ayat.getAya"
+    "*"
   ],
   "main": "./extension.js",
   "contributes": {
@@ -36,7 +36,16 @@
         "title": "Get Aya",
         "icon": "images/icon.png"
       }
-    ]
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Ayat configuration",
+      "properties": {
+        "ayat.repeatedEveryMinute": {
+          "type": "number",
+          "default": 45,
+          "description": "time between ayat notification."
+        }}}
   },
   "scripts": {
     "lint": "eslint .",

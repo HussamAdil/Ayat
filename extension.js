@@ -1,4 +1,3 @@
-
 const vscode = require('vscode');
 
 const axios = require('axios').default;
@@ -6,13 +5,13 @@ const axios = require('axios').default;
 /**
  * @param {vscode.ExtensionContext} context
  */ 
- function activate(context) {
-	 
-	context.subscriptions.push(vscode.commands.registerCommand('ayat.getAya',async function () {
-	
+ async function activate(context) {
+ 		
+		let repeatedEveryMinute = vscode.workspace.getConfiguration("ayat").get('repeatedEveryMinute');
+		
 		randomAyaNumber = GetrandomAyaNumber();
 
-		let content = "";
+ 		let content = "";
 
 		response = await axios.get(`http://api.alquran.cloud/v1/ayah/${randomAyaNumber}/ar.asad`).then(function (response)
 		{
@@ -33,12 +32,14 @@ const axios = require('axios').default;
 		
 			🔴 غير متصل بالشبكة  `
 		});
-
-		vscode.window.showInformationMessage(content ,{
-			'modal': true
-		});
-		 
-	}));	
+		
+		let convertMinutetoMs = repeatedEveryMinute * 60000;
+ 
+		setInterval(function(){
+			vscode.window.showInformationMessage(content ,{
+			});
+		}, convertMinutetoMs);
+		
 }
 
  function deactivate() {}
