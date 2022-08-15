@@ -6,7 +6,7 @@
 <img src="https://i.ibb.co/QFh2MsC/index.jpg" alt="index" border="0" width="200" height="200">
  </p>
 
-Get an verse(aya) from the Quran during your coding session 💻 , stay connected with the words of Allah. 💚 🕋
+Get a verse(an aya) from the Quran during your coding session 💻 stay connected with the words of Allah. 💚 🕋
 
 ## Release Notes
 
@@ -18,7 +18,7 @@ Get an verse(aya) from the Quran during your coding session 💻 , stay connecte
 - Emojis supported ✅
 - Full configurable ✅
 - Linux | Window | Mac Supported ✅
-
+- Autostart with vscode ✅
 
 ## Incoming features
 

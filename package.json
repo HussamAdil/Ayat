@@ -44,6 +44,8 @@
         "ayat.repeatedEveryMinute": {
           "type": "number",
           "default": 45,
+          "minimum": 10,
+          "maximum": 180,
           "description": "time between ayat notification."
         }
       }
