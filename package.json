@@ -25,7 +25,8 @@
     "Islam"
   ],
   "activationEvents": [
-    "*"
+    "*",
+    "onCommand:ayat.getAya"
   ],
   "main": "./extension.js",
   "contributes": {
@@ -44,7 +45,7 @@
         "ayat.repeatedEveryMinute": {
           "type": "number",
           "default": 45,
-          "minimum": 10,
+          "minimum": 20,
           "maximum": 180,
           "description": "time between ayat notification."
         }
