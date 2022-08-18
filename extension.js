@@ -2,41 +2,59 @@ const vscode = require('vscode');
 
 const axios = require('axios').default;
 
+function GetrandomAyaNumber() {
+	  
+	const ayatMinimumFromNumber = 1;
+	
+	const ayatMaximumAtNumber = 6236
+
+	return Math.floor(Math.random() * (ayatMaximumAtNumber - ayatMinimumFromNumber + 1)) + ayatMinimumFromNumber;
+}
+
+async function getRandomAya()
+{
+	randomAyaNumber = GetrandomAyaNumber();
+
+	let content = "";
+			
+	try {
+
+		response = await axios.get(`http://api.alquran.cloud/v1/ayah/${randomAyaNumber}/ar.asad`)
+		
+		let aya = response.data.data.text;
+
+		let ayaNumber = response.data.data.numberInSurah;
+
+		let surahName = response.data.data.surah.name 
+
+		content = `✨${aya}✨ 
+	💚 ${surahName} (${ayaNumber})
+		` ;
+	} catch (error) {
+		content = `✨لا إله إلا أنت سبحانك إني كنت من الظالمين
+	
+		🔴 غير متصل بالشبكة  `
+	}
+
+	return content;
+} 
+
 /**
  * @param {vscode.ExtensionContext} context
  */ 
- async function activate(context) {
- 		// run command GetAya 
-		 context.subscriptions.push(vscode.commands.registerCommand('ayat.getAya',async function () {
-
-			randomAyaNumber = GetrandomAyaNumber();
-	
-			let content = "";
-	
-			response = await axios.get(`http://api.alquran.cloud/v1/ayah/${randomAyaNumber}/ar.asad`).then(function (response)
-			{
-				let aya = response.data.data.text;
-	
-				let ayaNumber = response.data.data.number;
-	
-				let surah = response.data.data.surah.name
-	
-				content = `✨ ${aya} ✨ 
-			
-			💚 ${surah} (${ayaNumber})
-				` ;
-			}).catch(function (error) {
-				content = `✨  لا إله إلا أنت سبحانك إني كنت من الظالمين ✨
-				💚 لا تنسي ذكر الله
-			
-				🔴 غير متصل بالشبكة  `
+function activate(context) {
+		
+			context.subscriptions.push(vscode.commands.registerCommand('ayat.getAya',async function () {
+			 
+			getRandomAya().then(function(response){
+				vscode.window.showInformationMessage(response);
+			}).catch(() => {
+				vscode.window.showInformationMessage('Error while activating Ayat :( ');
 			});
-	
-			vscode.window.showInformationMessage(content);
-	
+
 		}));	
 
-		// autostarted 
+		// autostarted when vscode is up 
 		
 		let repeatedEveryMinute = vscode.workspace.getConfiguration("ayat").get('repeatedEveryMinute');
 				
@@ -44,30 +62,12 @@ const axios = require('axios').default;
  
 		setInterval( async function(){
 
-		randomAyaNumber = GetrandomAyaNumber();
-
-		let content = "";
-
-	   response = await axios.get(`http://api.alquran.cloud/v1/ayah/${randomAyaNumber}/ar.asad`).then(function (response)
-	   {
-		   let aya = response.data.data.text;
-
-		   let ayaNumber = response.data.data.number;
-	   
-		   let surah = response.data.data.surah.name
-	   
-		   content = `✨ ${aya} ✨ 
-	   
-	   💚 ${surah} (${ayaNumber})
-		   ` ;
-	   }).catch(function (error) {
-		   content = `✨  لا إله إلا أنت سبحانك إني كنت من الظالمين ✨
-
-		   💚 لا تنسي ذكر الله
-	   
-		   🔴 غير متصل بالشبكة  `
-	   });
-			vscode.window.showInformationMessage(content);
+			getRandomAya().then(function(response){
+				vscode.window.showInformationMessage(response);
+			}).catch(function(error){ 
+			vscode.window.showInformationMessage('Error while activating Ayat :( ');
+			});
+			 
 		},convertMinutetoMs);
 		
 }
@@ -79,11 +79,3 @@ module.exports = {
 	deactivate
 }
 
-function GetrandomAyaNumber() {
-
-	ayatStartedFromNumber = 1;
-	
-	ayatEndAtNumber = 6236
-
-	return Math.floor(Math.random() * (ayatEndAtNumber - ayatStartedFromNumber + 1)) + ayatStartedFromNumber;
-  }
