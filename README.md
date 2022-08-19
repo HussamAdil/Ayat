@@ -39,7 +39,7 @@ Get a verse(an aya) from the Quran during your coding session 💻 stay connecte
 - Update preview file. ✅
 
  
-## How to confige Ayat notfication timer
+## How to configure notification timer
 
 Go to File -> select -> preference -> settings 
 
@@ -49,7 +49,7 @@ Go to File -> select -> preference -> settings
 
     - Minimum value of 20 minutes between the next notification
 
-    - Max value 180 minutes [ 3 hours ]
+    - Maximum value 180 minutes [ 3 hours ]
 
 
       ![image info](./images/preview.gif)
