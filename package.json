@@ -2,7 +2,7 @@
   "name": "ayat",
   "displayName": "Ayat",
   "description": "Get a verse(an aya) from the Quran during your coding session 💻 stay connected with the words of Allah. 🕋💚 ",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "icon": "images/icon.png",
   "repository": {
     "type": "git",
