@@ -34,9 +34,9 @@ Get a verse(an aya) from the Quran during your coding session 💻 stay connecte
 
 - Fix aya number with vscode. ✅
 
-- Update logo
+- Update logo. ✅
 
-- Update preview file 
+- Update preview file. ✅
 
  
 ## How to confige Ayat notfication timer
@@ -52,7 +52,7 @@ Go to File -> select -> preference -> settings
     - Max value 180 minutes [ 3 hours ]
 
 
-![image info](./images/preview.gif)
+      ![image info](./images/preview.gif)
 
 
 ## Contributing 🧑‍💻
@@ -79,5 +79,4 @@ Contributions are always welcome!
 * [Personal website ](https://hussamadil.com)
 
 
-**Enjoy!**
-=======
+Enjoy 💚❤️
