@@ -2,14 +2,21 @@ const vscode = require('vscode');
 
 const axios = require('axios').default;
 
+const azkar = require('./azkar')
+
 function GetrandomAyaNumber() {
 	  
 	const ayatMinimumFromNumber = 1;
 	
 	const ayatMaximumAtNumber = 6236
 
-	return Math.floor(Math.random() * (ayatMaximumAtNumber - ayatMinimumFromNumber + 1)) + ayatMinimumFromNumber;
+	return GetrandomNumber(ayatMinimumFromNumber,ayatMaximumAtNumber)
 }
+
+function GetrandomNumber(min,max) {
+	return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 
 async function getRandomAya()
 {
@@ -44,7 +51,7 @@ async function getRandomAya()
  */ 
 function activate(context) {
 		
-			context.subscriptions.push(vscode.commands.registerCommand('ayat.getAya',async function () {
+		context.subscriptions.push(vscode.commands.registerCommand('ayat.getAya',async function () {
 			 
 			getRandomAya().then(function(response){
 				vscode.window.showInformationMessage(response);
@@ -52,6 +59,11 @@ function activate(context) {
 				vscode.window.showInformationMessage('Error while activating Ayat :( ');
 			});
 
+		}));	
+
+		context.subscriptions.push(vscode.commands.registerCommand('ayat.getZekr',async function () {
+			const content =  getRandomAthkar();
+			vscode.window.showInformationMessage(content);
 		}));	
 
 		// autostarted when vscode is up 
@@ -70,6 +82,16 @@ function activate(context) {
 			 
 		},convertMinutetoMs);
 		
+}
+
+
+function getRandomAthkar(){
+	const hour = new Date().getHours();
+	const index = hour > 12 ? 1 : 0;
+	const azkarArr = azkar[index].content
+	const random = GetrandomNumber(0,azkarArr.length-1)
+	const zekr = azkarArr[random]
+	return `✨${zekr.zekr}✨\n(repeat ${zekr.repeat} times)`
 }
 
  function deactivate() {}

@@ -26,7 +26,8 @@
   ],
   "activationEvents": [
     "*",
-    "onCommand:ayat.getAya"
+    "onCommand:ayat.getAya",
+    "onCommand:ayat.getZekr"
   ],
   "main": "./extension.js",
   "contributes": {
@@ -35,6 +36,12 @@
         "command": "ayat.getAya",
         "category": "Ayat",
         "title": "Get Aya",
+        "icon": "images/icon.png"
+      },
+      {
+        "command": "ayat.getZekr",
+        "category": "Azkar",
+        "title": "Get Zekr",
         "icon": "images/icon.png"
       }
     ],
