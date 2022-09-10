@@ -14,7 +14,7 @@ Get a verse(an aya) from the Quran during your coding session 💻 stay connecte
 
 - Get random aya from quran. ✅
 
-- Arabic supported . ✅
+- Arabic | English supported . ✅
 
 - Offline mode supported. ✅
 
@@ -38,19 +38,20 @@ Get a verse(an aya) from the Quran during your coding session 💻 stay connecte
 
 - Update preview file. ✅
 
- 
+
+## How to configure notification timer
+
+Go to File -> select -> preference -> settings 
+
+- Search for "Ayat" then set your own language :
+
 ## How to configure notification timer
 
 Go to File -> select -> preference -> settings 
 
 - Search for "Ayat" then set your own timer:
 
-    - Default value is 20 minutes.
-
-    - Minimum value of 20 minutes between the next notification
-
-    - Maximum value 180 minutes [ 3 hours ]
-
+    - Default value is 30 minutes.
 
       ![image info](./images/preview.gif)
 
