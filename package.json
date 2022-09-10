@@ -44,12 +44,17 @@
       "properties": {
         "ayat.repeatedEveryMinute": {
           "type": "number",
-          "default": 45,
-          "minimum": 20,
-          "maximum": 180,
-          "description": "time between ayat notification."
+          "default": "30",
+          "enum": ["30","60","90","120","180"],
+          "description": "Select time between ayat notification."
+        }, "ayat.language": {
+          "type": "string",
+          "description": "Select preferable language",
+          "default": "Arabic",
+          "enum": ["Arabic", "English"]
         }
       }
+     
     }
   },
   "scripts": {

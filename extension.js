@@ -11,6 +11,21 @@ function GetrandomAyaNumber() {
 	return Math.floor(Math.random() * (ayatMaximumAtNumber - ayatMinimumFromNumber + 1)) + ayatMinimumFromNumber;
 }
 
+function getUserlanguage()
+{
+	let lang = 'ar';
+	
+	if(vscode.workspace.getConfiguration("ayat").get('language') === 'Arabic')
+	{
+		return lang;
+	}else
+	{
+		  lang = 'en'; 
+	}
+
+	return lang;
+}
+
 async function getRandomAya()
 {
 	randomAyaNumber = GetrandomAyaNumber();
@@ -19,7 +34,9 @@ async function getRandomAya()
 
 	try {
 
-		response = await axios.get(`http://api.alquran.cloud/v1/ayah/${randomAyaNumber}/ar.asad`)
+		let ayalanguage = getUserlanguage();
+
+		response = await axios.get(`http://api.alquran.cloud/v1/ayah/${randomAyaNumber}/${ayalanguage}.asad`)
 
 		let aya = response.data.data.text;
 
@@ -47,7 +64,8 @@ function activate(context) {
 			context.subscriptions.push(vscode.commands.registerCommand('ayat.getAya',async function () {
 
 			getRandomAya().then(function(response){
-				vscode.window.showInformationMessage(response, 'إغلاق');
+				
+				vscode.window.showInformationMessage(response, 'X');
 			}).catch(() => {
 				vscode.window.showInformationMessage('Error while activating Ayat :( ');
 			});
@@ -55,15 +73,15 @@ function activate(context) {
 		}));
 
 		// autostarted when vscode is up
-
+	
 		let repeatedEveryMinute = vscode.workspace.getConfiguration("ayat").get('repeatedEveryMinute');
-
+		
 		let convertMinutetoMs = repeatedEveryMinute * 60000;
 
 		setInterval( async function(){
 
 			getRandomAya().then(function(response){
-				vscode.window.showInformationMessage(response, 'إغلاق');
+				vscode.window.showInformationMessage(response, 'X');
 			}).catch(function(error){
 			vscode.window.showInformationMessage('Error while activating Ayat :( ');
 			});
