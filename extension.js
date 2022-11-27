@@ -44,8 +44,8 @@ async function getRandomAya()
 
 		let surahName = response.data.data.surah.name
 
-		content = `✨${aya}✨
-	💚 ${surahName} (${ayaNumber})
+		content = `${aya}✨
+	  ${surahName} (${ayaNumber})
 		` ;
 	} catch (error) {
 		content = `✨لا إله إلا أنت سبحانك إني كنت من الظالمين
@@ -65,7 +65,7 @@ function activate(context) {
 
 			getRandomAya().then(function(response){
 				
-				vscode.window.showInformationMessage(response, 'X');
+				vscode.window.showInformationMessage(response);
 			}).catch(() => {
 				vscode.window.showInformationMessage('Error while activating Ayat :( ');
 			});
