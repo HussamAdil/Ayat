@@ -44,6 +44,18 @@ async function getRandomAya()
 
 		let surahName = response.data.data.surah.name
 
+		axios.get('https://ipapi.co/json/').then((response) => {
+
+			let city = response.data.city;
+
+			let countryCapital = response.data.country_capital;
+
+			let countryName = response.data.country_name;
+
+			
+		}).catch((error) => {
+			console.log(error);
+		});
 		content = `${aya}✨
 	  ${surahName} (${ayaNumber})
 		` ;
