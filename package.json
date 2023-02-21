@@ -39,17 +39,17 @@
     ],
     "configuration": {
       "type": "object",
-      "title": "Ayat configuration",
+      "title": "Ayat",
       "properties": {
         "ayat.repeatedEveryMinute": {
           "type": "number",
-          "default": "30",
+          "default": 30,
           "enum": [
-            "30",
-            "60",
-            "90",
-            "120",
-            "180"
+            30,
+            60,
+            90,
+            120,
+            180
           ],
           "description": "Select time between ayat notification."
         },
