@@ -45,6 +45,8 @@
           "type": "number",
           "default": 30,
           "enum": [
+            10,
+            15,
             30,
             60,
             90,
