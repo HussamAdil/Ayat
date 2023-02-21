@@ -60,7 +60,7 @@ function activate() {
     .getConfiguration("ayat")
     .get("repeatedEveryMinute");
 
-  let convertMinutetoMs = repeatedEveryMinute * 60000;
+  let convertMinuteToMs = repeatedEveryMinute * 60000;
 
   setInterval(async function () {
     getRandomAya()
@@ -74,7 +74,7 @@ function activate() {
           async (progress) => {
             progress.report({ increment: 0 });
             await new Promise((resolve) =>
-              setTimeout(resolve, convertMinutetoMs)
+              setTimeout(resolve, convertMinuteToMs)
             );
             progress.report({ increment: 100, message: "Done!" });
           }
@@ -90,13 +90,13 @@ function activate() {
           async (progress) => {
             progress.report({ increment: 0 });
             await new Promise((resolve) =>
-              setTimeout(resolve, convertMinutetoMs)
+              setTimeout(resolve, convertMinuteToMs)
             );
             progress.report({ increment: 100, message: "Done!" });
           }
         );
       });
-  }, convertMinutetoMs);
+  }, convertMinuteToMs);
 }
 
 function deactivate() {}
