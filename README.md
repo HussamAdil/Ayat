@@ -38,6 +38,14 @@ Get a verse(an aya) from the Quran during your coding session 💻 stay connecte
 
 - Update preview file. ✅
 
+### 2.2.0
+
+- Added more repeated time. ✅
+
+- Messages overflow automatically Dismissed. ✅
+
+- Features fixes. ✅
+
 
 ## How to configure notification timer
 
@@ -51,7 +59,7 @@ Go to File -> select -> preference -> settings
 
 - Search for "Ayat" then set your own timer:
 
-    - Default value is 30 minutes.
+    - Default value is 15 minutes.
 
       ![image info](./images/preview.gif)
 
