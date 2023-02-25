@@ -1,111 +1,107 @@
-const vscode = require('vscode');
+const vscode = require("vscode");
 
-const axios = require('axios').default;
+const axios = require("axios").default;
 
 function GetrandomAyaNumber() {
+  const ayatMinimumFromNumber = 1;
 
-	const ayatMinimumFromNumber = 1;
+  const ayatMaximumAtNumber = 6236;
 
-	const ayatMaximumAtNumber = 6236
-
-	return Math.floor(Math.random() * (ayatMaximumAtNumber - ayatMinimumFromNumber + 1)) + ayatMinimumFromNumber;
+  return (
+    Math.floor(
+      Math.random() * (ayatMaximumAtNumber - ayatMinimumFromNumber + 1)
+    ) + ayatMinimumFromNumber
+  );
 }
 
-function getUserlanguage()
-{
-	let lang = 'ar';
-	
-	if(vscode.workspace.getConfiguration("ayat").get('language') === 'Arabic')
-	{
-		return lang;
-	}else
-	{
-		  lang = 'en'; 
-	}
+function getUserLanguage() {
+  let lang = "ar";
 
-	return lang;
+  if (vscode.workspace.getConfiguration("ayat").get("language") === "Arabic") {
+    return lang;
+  } else {
+    lang = "en";
+  }
+
+  return lang;
 }
 
-async function getRandomAya()
-{
-	randomAyaNumber = GetrandomAyaNumber();
+async function getRandomAya() {
+  let randomAyaNumber = GetrandomAyaNumber();
 
-	let content = "";
+  let content = "";
 
-	try {
+  try {
+    let ayalanguage = getUserLanguage();
 
-		let ayalanguage = getUserlanguage();
+    let response = await axios.get(
+      `http://api.alquran.cloud/v1/ayah/${randomAyaNumber}/${ayalanguage}.asad`
+    );
 
-		response = await axios.get(`http://api.alquran.cloud/v1/ayah/${randomAyaNumber}/${ayalanguage}.asad`)
+    let aya = response.data.data.text;
 
-		let aya = response.data.data.text;
+    let ayaNumber = response.data.data.numberInSurah;
 
-		let ayaNumber = response.data.data.numberInSurah;
+    let surahName = response.data.data.surah.name;
 
-		let surahName = response.data.data.surah.name
-
-		axios.get('https://ipapi.co/json/').then((response) => {
-
-			let city = response.data.city;
-
-			let countryCapital = response.data.country_capital;
-
-			let countryName = response.data.country_name;
-
-			
-		}).catch((error) => {
-			console.log(error);
-		});
-		content = `${aya}✨
+    content = `${aya}✨
 	  ${surahName} (${ayaNumber})
-		` ;
-	} catch (error) {
-		content = `✨لا إله إلا أنت سبحانك إني كنت من الظالمين
+		`;
+  } catch (error) {
+    content = `✨لا إله إلا أنت سبحانك إني كنت من الظالمين
+		🔴 غير متصل بالشبكة  `;
+  }
 
-		🔴 غير متصل بالشبكة  `
-	}
-
-	return content;
+  return content;
 }
 
-/**
- * @param {vscode.ExtensionContext} context
- */
-function activate(context) {
+function activate() {
+  let repeatedEveryMinute = vscode.workspace
+    .getConfiguration("ayat")
+    .get("repeatedEveryMinute");
 
-			context.subscriptions.push(vscode.commands.registerCommand('ayat.getAya',async function () {
+  let convertMinuteToMs = repeatedEveryMinute * 60000;
 
-			getRandomAya().then(function(response){
-				
-				vscode.window.showInformationMessage(response);
-			}).catch(() => {
-				vscode.window.showInformationMessage('Error while activating Ayat :( ');
-			});
-
-		}));
-
-		// autostarted when vscode is up
-	
-		let repeatedEveryMinute = vscode.workspace.getConfiguration("ayat").get('repeatedEveryMinute');
-		
-		let convertMinutetoMs = repeatedEveryMinute * 60000;
-
-		setInterval( async function(){
-
-			getRandomAya().then(function(response){
-				vscode.window.showInformationMessage(response, 'X');
-			}).catch(function(error){
-			vscode.window.showInformationMessage('Error while activating Ayat :( ');
-			});
-
-		},convertMinutetoMs);
-
+  setInterval(async function () {
+    getRandomAya()
+      .then(function (response) {
+        vscode.window.withProgress(
+          {
+            location: vscode.ProgressLocation.Notification,
+            title: response,
+            cancellable: true,
+          },
+          async (progress) => {
+            progress.report({ increment: 0 });
+            await new Promise((resolve) =>
+              setTimeout(resolve, convertMinuteToMs)
+            );
+            progress.report({ increment: 100, message: "Done!" });
+          }
+        );
+      })
+      .catch(function () {
+        vscode.window.withProgress(
+          {
+            location: vscode.ProgressLocation.Notification,
+            title: "Error while activating Ayat :( ",
+            cancellable: true,
+          },
+          async (progress) => {
+            progress.report({ increment: 0 });
+            await new Promise((resolve) =>
+              setTimeout(resolve, convertMinuteToMs)
+            );
+            progress.report({ increment: 100, message: "Done!" });
+          }
+        );
+      });
+  }, convertMinuteToMs);
 }
 
- function deactivate() {}
+function deactivate() {}
 
 module.exports = {
-	activate,
-	deactivate
-}
-
+  activate,
+  deactivate,
+};

@@ -2,7 +2,7 @@
   "name": "ayat",
   "displayName": "Ayat",
   "description": "Get a verse(an aya) from the Quran during your coding session 💻 stay connected with the words of Allah. 🕋💚 ",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "icon": "images/icon.png",
   "repository": {
     "type": "git",
@@ -25,8 +25,7 @@
     "Islam"
   ],
   "activationEvents": [
-    "*",
-    "onCommand:ayat.getAya"
+    "*"
   ],
   "main": "./extension.js",
   "contributes": {
@@ -40,21 +39,32 @@
     ],
     "configuration": {
       "type": "object",
-      "title": "Ayat configuration",
+      "title": "Ayat",
       "properties": {
         "ayat.repeatedEveryMinute": {
           "type": "number",
-          "default": "30",
-          "enum": ["30","60","90","120","180"],
+          "default": 15,
+          "enum": [
+            10,
+            15,
+            30,
+            60,
+            90,
+            120,
+            180
+          ],
           "description": "Select time between ayat notification."
-        }, "ayat.language": {
+        },
+        "ayat.language": {
           "type": "string",
           "description": "Select preferable language",
           "default": "Arabic",
-          "enum": ["Arabic", "English"]
+          "enum": [
+            "Arabic",
+            "English"
+          ]
         }
       }
-     
     }
   },
   "scripts": {
