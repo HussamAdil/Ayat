@@ -46,6 +46,14 @@ Get a verse(an aya) from the Quran during your coding session 💻 stay connecte
 
 - Features fixes. ✅
 
+### 2.3.0
+
+- To Remove the notification, Press the "Ctrl + Shift + A". ✅
+
+- Now you can hide sura name with Aya number. ✅
+
+- Improve performance. ✅
+
 
 ## How to configure notification timer
 
