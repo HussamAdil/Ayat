@@ -45,7 +45,7 @@
         },
         "ayat.repeatedEveryMinute": {
           "type": "number",
-          "default": 15,
+          "default": 30,
           "order": 2,
           "enum": [
             10,
