@@ -15,15 +15,9 @@ function GetrandomAyaNumber() {
 }
 
 function getUserLanguage() {
-  let lang = "ar";
-
-  if (vscode.workspace.getConfiguration("ayat").get("language") === "Arabic") {
-    return lang;
-  } else {
-    lang = "en";
-  }
-
-  return lang;
+  return vscode.workspace.getConfiguration("ayat").get("language") === "Arabic"
+    ? "ar"
+    : "en";
 }
 
 async function getRandomAya() {
@@ -40,13 +34,15 @@ async function getRandomAya() {
 
     let aya = response.data.data.text;
 
-    let ayaNumber = response.data.data.numberInSurah;
-
-    let surahName = response.data.data.surah.name;
-
-    content = `${aya}✨
+    if (vscode.workspace.getConfiguration("ayat").get("getSuraName") === true) {
+      let ayaNumber = response.data.data.numberInSurah;
+      let surahName = response.data.data.surah.name;
+      content = `${aya}✨
 	  ${surahName} (${ayaNumber})
 		`;
+    } else {
+      content = aya;
+    }
   } catch (error) {
     content = `✨لا إله إلا أنت سبحانك إني كنت من الظالمين
 		🔴 غير متصل بالشبكة  `;
