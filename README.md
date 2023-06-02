@@ -67,7 +67,7 @@ Go to File -> select -> preference -> settings
 
 - Search for "Ayat" then set your own timer:
 
-    - Default value is 15 minutes.
+    - Default value is 30 minutes.
 
       ![image info](./images/preview.gif)
 
